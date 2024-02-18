@@ -1,0 +1,30 @@
+footer{
+    background-color: var(--black);
+    padding: var(--page-padding);
+    display: flex;
+    flex-direction: row;
+    gap: var(--page-padding);
+}
+
+footer > section {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+footer > section > h6 {
+  font-size: 1rem;
+  margin: 0;
+  margin-bottom: var(--page-padding);
+  color: var(--grey);
+}
+
+footer > section > a {
+    color: var(--grey);
+    transition: 0.2s;
+}
+
+footer > section > a:hover {
+    color: var(--white);
+    text-decoration: underline 1px solid var(--white);
+}
