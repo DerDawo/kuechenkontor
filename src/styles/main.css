@@ -1,32 +1,36 @@
-:root{
-    --black:#06060F;
-    --grey:#393843;
-    --red:#DA1B2B;
-    --white:#FFFFFF;
-    --dirty-wite:#EEEEEE;
-    --page-padding: 20px;
+:root {
+    --black: #06060F;
+    --grey: #393843;
+    --red: #DA1B2B;
+    --white: #FFFFFF;
+    --dirty-wite: #EEEEEE;
+    --transparent: transparent;
+    --page-padding: 40px;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-html, body{
+html,
+body {
     margin: 0;
     padding: 0;
     width: 100%;
     font-size: 12px;
+    scroll-behavior: smooth;
 }
 
-body{
+body {
     background-color: var(--white);
 }
 
-article{
+article {
     padding: var(--page-padding);
     margin-top: calc(-30px - 2 * var(--page-padding));
     min-height: 100dvh;
 }
 
-h2{
+h2 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: var(--grey);
     opacity: .25;
@@ -34,18 +38,22 @@ h2{
     z-index: 0 !important;
 }
 
-article > *{
+article>* {
     z-index: 1;
 }
 
-#home{
+#home {
+    background-image: url("../imgs/kitchen_1.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#place{
+#place {
     background-color: var(--grey);
     min-height: calc(100dvh - 70px - 2 * var(--page-padding));
 }
