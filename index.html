@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="./src/styles/navigation.css">
     <link rel="stylesheet" href="./src/styles/footer.css">
     <script src="./src/scripts/styles.js" defer></script>
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js" integrity="sha512-poSrvjfoBHxVw5Q2awEsya5daC0p00C8SKN74aVJrs7XLeZAi+3+13ahRhHm8zdAFbI2+/SUIrKYLvGBJf9H3A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <!-- 
         <script src="./src/scripts/components.js" defer></script>
     -->
@@ -58,9 +62,47 @@
         </section>
     </article>
     <article id="customers">
+        <div class="customer-reviews">
+            <div class="review">
+                <p class="review-text">"Ich bin überrascht gewesen von der Hingabe und Hilfsbereitschaft. Ich bin überaus glücklich mit meiner neuen Küchen."</p>
+                <p class="review-name">Reiner K. , 54 Jahre</p>
+            </div>
+            <div class="review">
+                <p class="review-text">"Besonders für junge Leute wie uns, war es sehr schwer mit unseren begrenzten Mitteln eine qualitatihochwertige Küche zu finden. Doch beim Küchenkontor waren gut aufgehoben!"</p>
+                <p class="review-name">Sabine U. und Max. M , 22 und 24 Jahre</p>
+            </div>
+            <div class="review">
+                <p class="review-text">"Nach 20 Jahren hätte ich nicht gedacht, dass ich mich von meiner Küche hätte trennen können, doch hier fand ich dann meine neue Liebe."</p>
+                <p class="review-name">Beate V. , 62 Jahre</p>
+            </div>
+            <div class="review">
+                <p class="review-text">"Mir hat besonders die große Auswahl an Materialien gefallen. Dadurch konnte ich genau das finden, was meinem geschmack entspricht."</p>
+                <p class="review-name">Nina M. , 34 Jahre</p>
+            </div>
+            <div class="review">
+                <p class="review-text">"Unsere kleinen Familie wurde hervoragend gefunden eine große Küche zu finden. Top Service!"</p>
+                <p class="review-name">Famile Jung</p>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $('.customer-reviews').slick(
+                        {
+                            centerMode: true,
+                            centerPadding: '60px',
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            autoplaySpeed: 2000,
+                        }
+                    );
+                }
+            );
+        </script>
+    </article>
+    <article id="articles">
         
     </article>
-    <article id="aboutus">
+    <article id="partners">
         <h2>Zufriedene Partner</h2>
 
     </article>
