@@ -1,7 +1,7 @@
 :root {
     --black: #06060F;
     --grey: #393843;
-    --red: #DA1B2B;
+    --red: #E9212B;
     --white: #FFFFFF;
     --dirty-wite: #EEEEEE;
     --transparent: transparent;
@@ -30,12 +30,35 @@ article {
     min-height: 100dvh;
 }
 
+h1{
+    margin: 0;
+    width: 60%;
+}
+
 h2 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: var(--grey);
-    opacity: .25;
-    font-size: 10rem;
+    opacity: 1;
+    font-size: 5rem;
+    white-space: nowrap;
+    z-index: 1 !important;
+    margin: 15rem 0 0 0;
+}
+
+h2::before{
+    content: attr(data-before);
+    position: absolute;
+    left: 5px;
+    font-size: 15rem;
+    opacity: 0.0625;
     z-index: 0 !important;
+    margin-top: -5rem;
+}
+
+.logo{
+    padding: 2%;
+    background-color: #fff;
+    width: 100%;
 }
 
 article>* {
@@ -57,3 +80,49 @@ article>* {
     background-color: var(--grey);
     min-height: calc(100dvh - 70px - 2 * var(--page-padding));
 }
+
+#kitchen{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+#kitchen > section:nth-of-type(2n){
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 5%;
+}
+
+#kitchen > section{
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+}
+
+#kitchen > section > img{
+    border-radius: 30px;
+    width: 500px;
+
+    object-fit: cover;
+}
+
+#kitchen > section > div{
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#kitchen > section > div > h3{
+    font-size: 3rem;
+    font-style: italic;
+}
+
+#kitchen > section > div > p{
+    font-size: 2rem;
+    line-height: 4rem;
+}
+
+#cus
