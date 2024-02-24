@@ -3,18 +3,18 @@ nav {
     display: flex;
     flex-direction: row;
     gap: var(--page-padding);
-    position: sticky;
+    position: fixed;
     top: 0;
-    left: 0;
+    width: calc(100% - 2 * var(--page-padding));
     z-index: 9999;
     height: 30px;
     background-color: var(--transparent);
-    transition: 0.2s
+    transition: 0.2s;
 }
 
-nav:hover {
+nav.hover {
     background-color: var(--white) !important;
-    box-shadow: 0 0 .5em rgba(0, 0, 0, .5);
+    box-shadow: 0 0 .5em rgba(0, 0, 0, .5) !important;
 }
 
 nav>a {
@@ -31,7 +31,7 @@ nav>a {
     padding-bottom: 5px;
 }
 
-nav:hover>a {
+nav.hover>a {
     color: var(--black) !important;
 }
 

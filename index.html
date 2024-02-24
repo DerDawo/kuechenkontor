@@ -12,7 +12,10 @@
 
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js" integrity="sha512-poSrvjfoBHxVw5Q2awEsya5daC0p00C8SKN74aVJrs7XLeZAi+3+13ahRhHm8zdAFbI2+/SUIrKYLvGBJf9H3A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="./src/lib/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="./src/lib/slick/slick-theme.css"/>
+    <script src="./src/lib/slick/slick.min.js"></script>
     <!-- 
         <script src="./src/scripts/components.js" defer></script>
     -->
@@ -50,14 +53,14 @@
             <img src="./src/imgs/kitchen_2.jpg">
             <div>
                 <h3>Egal ob Landhaus ...</h3>
-                <p>Entdecken Sie die zeitlose Schönheit unserer Landhausküchen - eine Hommage an traditionelles Handwerk und rustikalen Charme. Perfekt für diejenigen, die das gemütliche Ambiente eines ländlichen Zuhauses lieben.</p>
+                <p>Entdecken Sie die zeitlose Schönheit unserer Landhausküchen - eine Hommage an traditionelles Handwerk und rustikalen Charme.<br>Perfekt für diejenigen, die das gemütliche Ambiente eines ländlichen Zuhauses lieben.</p>
             </div>
         </section>
         <section>
             <img src="./src/imgs/kitchen_3.jpg">
             <div>
                 <h3>... oder Moderne</h3>
-                <p>Tauchen Sie ein in die moderne Eleganz unserer Küchenkollektion. Mit schlanken Linien, hochwertigen Materialien und innovativem Design bieten unsere modernen Küchen einen Hauch von Luxus und zeitgemäßer Raffinesse. Entdecken Sie Ihr perfektes Küchenensemble in unserem vielfältigen Portfolio.</p>
+                <p>Tauchen Sie ein in die moderne Eleganz unserer Küchenkollektion.<br>Mit schlanken Linien, hochwertigen Materialien und innovativem Design bieten unsere modernen Küchen einen Hauch von Luxus und zeitgemäßer Raffinesse. Entdecken Sie Ihr perfektes Küchenensemble in unserem vielfältigen Portfolio.</p>
             </div>
         </section>
     </article>
@@ -101,10 +104,94 @@
     </article>
     <article id="materials">
         <h2 data-before="Große Auswahl an Materialien">Große Auswahl an Materialien</h2>
-        
+        <div class="materialOverview">
+            <div class="material-nav-slider">
+                <div><h3>1</h3></div>
+                <div><h3>2</h3></div>
+                <div><h3>3</h3></div>
+                <div><h3>4</h3></div>
+                <div><h3>5</h3></div>
+                <div><h3>6</h3></div>
+            </div>
+            <div class="material-display-slider">
+                <div><h3>1</h3></div>
+                <div><h3>2</h3></div>
+                <div><h3>3</h3></div>
+                <div><h3>4</h3></div>
+                <div><h3>5</h3></div>
+                <div><h3>6</h3></div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $('.material-display-slider').slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    fade: true,
+                    asNavFor: '..material-nav-slider'
+                });
+            });
+            $(document).ready(function(){
+                $('.material-nav-slider').slick({
+                    slidesToShow: 6,
+                    slidesToScroll: 1,
+                    asNavFor: 'material-display-slider',
+                    dots: true,
+                    centerMode: true,
+                    focusOnSelect: true
+                });
+            });
+        </script>
     </article>
     <article id="partners">
-
+        <div class="partner-caroussel">
+            <a class="partner-link">
+                <i class="fa-brands fa-pied-piper"></i>
+            </a>
+            <a class="partner-link">
+                <i class="fa-brands fa-wizards-of-the-coast"></i>
+            </a>
+            <a class="partner-link">
+                <i class="fa-brands fa-wirsindhandwerk"></i>
+            </a>
+            <a class="partner-link">
+                <i class="fa-brands fa-the-red-yeti"></i>
+            </a>
+            <a class="partner-link">
+                <i class="fa-brands fa-supple"></i>
+            </a>
+            <a class="partner-link">
+                <i class="fa-brands fa-ideal"></i>
+            </a>
+            <a class="partner-link">
+                <i class="fa-brands fa-etsy"></i>
+            </a>
+            <a class="partner-link">
+                <i class="fa-brands fa-trade-federation"></i>
+            </a>
+            <a class="partner-link">
+                <i class="fa-brands fa-studiovinari"></i>
+            </a>
+            <a class="partner-link">
+                <i class="fa-brands fa-phoenix-framework"></i>
+            </a>
+            <a class="partner-link">
+                <i class="fa-brands fa-jenkins"></i>
+            </a>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $('.partner-caroussel').slick(
+                        {
+                            slidesToShow: 7,
+                            slidesToScroll: 1,
+                            autoplaySpeed: 1000,
+                        }
+                    );
+                }
+            );
+        </script>
     </article>
     <article id="place">
         

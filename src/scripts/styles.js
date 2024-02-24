@@ -1,22 +1,28 @@
-function changeNav() {
-    const navElement = document.querySelector("nav");
-    const navAnchors = document.querySelectorAll("nav > a");
+const nav = document.querySelector("nav")
 
-    const scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+let scrollTop = 0
+
+function changeNav() {
+    scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+
+    console.log(scrollTop)
 
     if (scrollTop > 100) {
-        navElement.style.backgroundColor = "var(--white)";
-        navElement.style.boxShadow = "0 0 .5em rgba(0, 0, 0, .5)";
-        for (const n of navAnchors) {
-            n.style.color = "var(--black)"
-        }
+        hoverNav()
     } else {
-        navElement.style.backgroundColor = "var(--transparent)";
-        navElement.style.boxShadow = "unset";
-        for (const n of navAnchors) {
-            n.style.color = "var(--white)"
-        }
+        unhoverNav()
     }
 }
 
 window.addEventListener("scroll", changeNav, false);
+
+nav.addEventListener("mouseover",hoverNav)
+nav.addEventListener("mouseleave",unhoverNav)
+
+function hoverNav(){
+    nav.classList.add("hover")
+}
+function unhoverNav(){
+    if(scrollTop > 100) return
+    nav.classList.remove("hover")
+}
