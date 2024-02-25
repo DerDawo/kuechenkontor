@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./src/styles/main.css">
     <link rel="stylesheet" href="./src/styles/navigation.css">
     <link rel="stylesheet" href="./src/styles/footer.css">
+    <link rel="stylesheet" href="./src/styles/styles-to-apply.css">
     <script src="./src/scripts/styles.js" defer></script>
 
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
@@ -105,44 +106,231 @@
     <article id="materials">
         <h2 data-before="Große Auswahl an Materialien">Große Auswahl an Materialien</h2>
         <div class="materialOverview">
-            <div class="material-nav-slider">
-                <div><h3>1</h3></div>
-                <div><h3>2</h3></div>
-                <div><h3>3</h3></div>
-                <div><h3>4</h3></div>
-                <div><h3>5</h3></div>
-                <div><h3>6</h3></div>
+            <div class="material-nav-container">
+                <input name="material-selection" id="LackfrontRadio" type="radio">
+                <label for="LackfrontRadio">Lackfront</label>
+                <input name="material-selection" id="KunststofffrontRadio" type="radio">
+                <label for="KunststofffrontRadio">Kunststofffront</label>
+                <input name="material-selection" id="AcrylfrontRadio" type="radio">
+                <label for="AcrylfrontRadio">Acrylfront</label>
+                <input name="material-selection" id="GlasRadio" type="radio">
+                <label for="GlasRadio">Glas</label>
+                <input name="material-selection" id="HolzRadio" type="radio">
+                <label for="HolzRadio">Holz</label>
+                <input name="material-selection" id="EdelstahlRadio" type="radio">
+                <label for="EdelstahlRadio">Edelstahl</label>
             </div>
-            <div class="material-display-slider">
-                <div><h3>1</h3></div>
-                <div><h3>2</h3></div>
-                <div><h3>3</h3></div>
-                <div><h3>4</h3></div>
-                <div><h3>5</h3></div>
-                <div><h3>6</h3></div>
+            <div class="material-display-container">
+                <div data-for="LackfrontRadio">
+                    <h3>Lackfront - schick und trendy – und einfach in Schuss zu halten</h3>
+                    <p>Kunststoff oder auch Schichtstoff ist das wohl am häufigsten verwendete Material für die Küchenfront, da es sehr pflegeleicht und äußerst robust ist. Fast jede gewünschte Optik lässt sich hier zu einem guten Preis realisieren.</p>
+                </div>
+                <div data-for="KunststofffrontRadio">
+                    <h3>Kunststofffront - robuste und pflegeleichte Allzwecklösung</h3>
+                    <p>Lackfronten wirken nicht nur edel und modern, sondern setzen durch interessante Farbauswahl schöne Akzente. Dabei wird Holz mit einem Zweikomponentenlack lackiert. Bei der Polier- und Schleifarbeit werden unterschiedliche Methoden angewandt, um matte oder hochglänzende Fronten zu erhalten. Küchenfronten aus Lack sind strapazierfähig, leicht zu reinigen und können immer wieder poliert werden, ohne dass die Oberfläche darunter leidet.</p>
+                </div>
+                <div data-for="AcrylfrontRadio">
+                    <h3>Acrylfront - die Alternative zu Lack</h3>
+                    <p>Ähnlich wie beim Laminat wird eine Acrylfolie mit Druck und Hitze auf eine Trägerplatte aufgebracht. Die Acrylfolie erzeugt eine stylisch glänzende Oberfläche. Da Acryl als Material relativ weich ist, sind die Oberflächen anfällig für Kratzer, die das Bild der Hochglanzküche stören können. Ein Pluspunkt ist die große Gestaltungsvielfalt bezüglich Farben und Design, sodass individuelle Wünsche und Vorlieben mit einer Küchenfront aus Acryl sehr gut realisiert werden können. Bei der Reinigung sollte allerdings auf scharfe oder ölhaltige Substanzen verzichtet werden, da dadurch die Küchenfront auf Dauer spröde wird. Für alle glänzenden Fronten gilt, dass sie die Küche optisch vergrößern. Sie eignen sich daher gerade für kleine Küchen. Durch Spiegelungen entstehen interessante Effekte, die die Küche geräumiger wirken lassen.</p>
+                </div>
+                <div data-for="GlasRadio">
+                    <h3>Glas - ideal für kleine Küchen</h3>
+                    <p>Glasfronten in der Küche schaffen ein helles, freundliches Raumklima. Gerade bei kleineren Küchen ist die Glaswand eine gute Wahl, da der Raum dadurch großzügiger wirkt. Zudem ist Glas ein sehr robustes Material, dabei auch hitzebeständig, feuchtigkeitsabweisend und sehr hygienisch. Allerdings entstehen schnell sichtbare leichte Verschmutzungen wie Fingerabdrücke. Die Pflege von Glasfronten ist dagegen einfach, sie müssen nur mit einem feuchten Tuch abgewischt werden.</p>
+                </div>
+                <div data-for="HolzRadio">
+                    <h3>Holz - unerreicht warm und gemütlich – aber pflegeintensiv</h3>
+                    <p>Vollholz ist die Mutter aller Materialien für Küchenfronten. Eine Küchenfront aus Edelhölzern mit oder ohne Maserung, rau oder glatt, Natur oder geräuchert, schafft nicht nur für Naturfreunde ein warmes, heimisches Ambiente. Dabei muss es nicht immer die rustikale Landhausküche sein. Holz kommt heute auch sehr puristisch und kombinierfreudig daher. Und die Versieglung mit einer dünnen Lackschicht macht Holz unempfindlicher, vor allem gegen Nässe. Allerdings muss die Oberfläche sorgsam behandelt werden, damit die Schutzschicht lange hält. Einen Überblick über die verschiedenen Holzarten in der Küche und die Vor- und Nachteile von Echtholz, Vollholz und Massivholz finden in unserem Artikel über Holzküchen.</p>
+                </div>
+                <div data-for="EdelstahlRadio">
+                    <h3>Edelstahl - technisch, extravagant, aber anfällig für Kratzer</h3>
+                    <p>Was lange den Profiküchen vorbehalten war, hat mittlerweile auch Einzug in die moderne Privatküche gefunden. Edelstahloberflächen versprühen eine kühle Eleganz und sind sehr hygienisch. An sich ist Edelstahl ein pflegeleichtes Material, da zur Reinigung ein weicher Schwamm oder ein Tuch mit etwas Spülmittel ausreichend ist. Nachteil: Fingerabdrücke und Schlieren oder gar Kratzer sind kaum vermeidbar. Die Edelstahlküche setzt durch den Gebrauch mit der Zeit Patina an. Wer diesen „used look“ nicht will, ist mit Edelstahl in der Küche eher schlecht beraten.</p>
+                </div>
             </div>
         </div>
-        <script>
-            $(document).ready(function(){
-                $('.material-display-slider').slick({
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    arrows: false,
-                    fade: true,
-                    asNavFor: '..material-nav-slider'
-                });
-            });
-            $(document).ready(function(){
-                $('.material-nav-slider').slick({
-                    slidesToShow: 6,
-                    slidesToScroll: 1,
-                    asNavFor: 'material-display-slider',
-                    dots: true,
-                    centerMode: true,
-                    focusOnSelect: true
-                });
-            });
-        </script>
+    </article>
+    <article id="materialComparison">
+        <div id="materialComparisonContainer">
+            <div class="materialCard">
+                <h4></h4>
+                <img src="" alt="">
+                <div class="materialStats">
+                    <p></p>
+                    <div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                    </div>
+                    <p></p>
+                    <div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                    </div>
+                    <p></p>
+                    <div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="materialCard">
+                <h4></h4>
+                <img src="" alt="">
+                <div class="materialStats">
+                    <p></p>
+                    <div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                    </div>
+                    <p></p>
+                    <div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                    </div>
+                    <p></p>
+                    <div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="materialCard">
+                <h4></h4>
+                <img src="" alt="">
+                <div class="materialStats">
+                    <p></p>
+                    <div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                    </div>
+                    <p></p>
+                    <div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                    </div>
+                    <p></p>
+                    <div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="materialCard">
+                <h4></h4>
+                <img src="" alt="">
+                <div class="materialStats">
+                    <p></p>
+                    <div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                    </div>
+                    <p></p>
+                    <div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                    </div>
+                    <p></p>
+                    <div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="materialCard">
+                <h4></h4>
+                <img src="" alt="">
+                <div class="materialStats">
+                    <p></p>
+                    <div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                    </div>
+                    <p></p>
+                    <div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                    </div>
+                    <p></p>
+                    <div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="materialCard">
+                <h4></h4>
+                <img src="" alt="">
+                <div class="materialStats">
+                    <p></p>
+                    <div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                    </div>
+                    <p></p>
+                    <div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                    </div>
+                    <p></p>
+                    <div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                        <div class="statsCircle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </article>
     <article id="partners">
         <div class="partner-caroussel">
