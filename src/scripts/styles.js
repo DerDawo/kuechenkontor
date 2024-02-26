@@ -28,7 +28,6 @@ function unhoverNav(){
 }
 
 const materialNavOptions = document.getElementsByClassName("material-nav-container")[0].querySelectorAll("input");
-console.log(materialNavOptions)
 for(const mnO of materialNavOptions){
     mnO.addEventListener("click",showMaterialContainerDiv)
 }
@@ -46,3 +45,5 @@ function showMaterialContainerDiv(){
     }
     
 }
+
+materialNavOptions[0].click()

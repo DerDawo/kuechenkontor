@@ -1,0 +1,117 @@
+
+/* In Webseite enthaltenes Stil-Dokument #7 | https://cautious-waffle-xxg9945prgpcj-5500.app.github.dev/ */
+
+#materialComparisonContainer {
+    /* justify-content: space-evenly; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .materialCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    accent-color: ;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    gap: 20px;
+  }
+  
+  .statsCircle {
+    width: 10px;
+    height: 10px;
+    border: 2px var(--red) solid;
+    border-radius: 50%;
+  }
+  
+  .statsCircle.filled {
+    background-color: var(--red);
+  }
+  
+  .materialStats > div {
+    display: flex;
+    gap: 3px;
+    flex-direction: row;
+  }
+  
+  materialStats > p {
+  }
+  
+  .materialStats > p {
+    font-size: 16px;
+    margin: 0;
+  }
+  
+  .materialStats {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .materialCard > h4 {
+    font-size: 20px;
+    margin: 0;
+  }
+  
+  .materialCard > img {
+    width: 150px;
+    height: 150px;
+  }
+
+  
+/* In Webseite enthaltenes Stil-Dokument #7 | https://cautious-waffle-xxg9945prgpcj-5500.app.github.dev/ */
+
+.partner-link {
+    height: 30px;
+    color: black;
+  }
+  
+  .partner-link > i {
+    /* display: initial; */
+    /* display: inline flow-root list-item; */
+    font-size: 2rem;
+    width: 200px;
+    display: inline-block;
+  }
+  
+  #partners {
+    background-color: #ccc;
+    min-height: unset;
+    height: auto;
+  }
+  
+  .partner-link {
+    /* color: black; */
+    color: #fff;
+    font-size: 20rem;
+  }
+  
+  #materialComparison {
+    margin-top: 0;
+  }
+  
+  #materials {
+    min-height: unset;
+  }
+  
+  /* main.css | https://cautious-waffle-xxg9945prgpcj-5500.app.github.dev/src/styles/main.css */
+  
+  #place {
+    margin-top: 0;
+    min-height: unset;
+  }
+  
+  .materialOverview {
+    /* grid-template-rows: 60dvh; */
+  }
+  
+  #customers {
+    margin-top: 0;
+  }
+  
