@@ -103,7 +103,7 @@
 }
 
 .partner-caroussel > .slick-prev::before, .slick-next::before {
-  color: #ccc;
+  color: #ccc !important;
 }
 
 .partner-link:hover {
