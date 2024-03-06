@@ -74,9 +74,18 @@
 }
 
 .partner-link {
-  /* color: black; */
   color: #fff;
   font-size: 20rem;
+  transition: 0.2s;
+}
+
+.partner-link > img{
+  filter: grayscale(1);
+  transition: 0.2s;
+}
+
+.partner-link:hover > img{
+  filter: grayscale(0);
 }
 
 #materialComparison {
