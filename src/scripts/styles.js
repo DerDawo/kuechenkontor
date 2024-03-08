@@ -3,6 +3,7 @@ const nav = document.querySelector("nav")
 let scrollTop = 0
 
 function changeNav() {
+    fadeInOnScroll()
     scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
 
     console.log(scrollTop)
@@ -15,6 +16,7 @@ function changeNav() {
 }
 
 window.addEventListener("scroll", changeNav, false);
+//document.addEventListener("scroll",fadeInOnScroll)
 
 nav.addEventListener("mouseover",hoverNav)
 nav.addEventListener("mouseleave",unhoverNav)
@@ -47,3 +49,19 @@ function showMaterialContainerDiv(){
 }
 
 materialNavOptions[0].click()
+
+function fadeInOnScroll(){
+    const pageTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+    const pageBottom = pageTop + window.innerHeight;
+    const fade_ins = document.getElementsByClassName("fade-in");
+  
+    for (var i = 0; i < fade_ins.length; i++) {
+      const fade_in = fade_ins[i];
+      if (fade_in.offsetTop < pageBottom) {
+        fade_in.classList.add("visible");
+      } 
+      else {
+        fade_in.classList.remove("visible");
+      }
+    }
+}
