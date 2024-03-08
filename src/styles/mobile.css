@@ -1,0 +1,33 @@
+@media only screen and (max-width: 768px) {
+    article{
+        padding: 20px !important;
+    }
+
+    h1{
+        width: 100%;
+    }
+
+    h2{
+        font-size: 3.5rem;
+    }
+
+    #kitchen > section{
+        flex-direction: column;
+    }
+
+    #kitchen > section:nth-of-type(2n){
+        flex-direction: column;
+    }
+
+    #kitchen > section > img{
+        width:100%;
+    }
+
+    #kitchen > section > div > p{
+        width: 100%;
+    }
+
+    #customers{
+        padding: 40px;
+    }
+}

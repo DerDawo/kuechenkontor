@@ -28,12 +28,12 @@ body {
 }
 
 article {
-    padding: var(--page-padding);
+    padding: calc(2 * var(--page-padding)) calc(6* var(--page-padding));
     margin-top: calc(-30px - 2 * var(--page-padding));
     min-height: 100dvh;
 }
 
-h1{
+h1 {
     margin: 0;
     width: 60%;
 }
@@ -48,11 +48,11 @@ h2 {
     margin: 15rem 0 0 0;
 }
 
-h2:nth-of-type(2n){
+h2:nth-of-type(2n) {
     text-align: end;
 }
 
-h2::before{
+h2::before {
     content: attr(data-before);
     position: absolute;
     left: 5px;
@@ -62,14 +62,10 @@ h2::before{
     margin-top: -5rem;
 }
 
-.logo{
+.logo {
     padding: 2%;
     background-color: #fff;
-    width: 100%;
-}
-
-article>* {
-    z-index: 1;
+    width: calc(100% - 2 * 2%);
 }
 
 #home {
@@ -89,33 +85,33 @@ article>* {
     min-height: calc(100dvh - 70px - 2 * var(--page-padding));
 }
 
-#kitchen{
+#kitchen {
     display: flex;
     flex-direction: column;
     gap: 25px;
 }
 
-#kitchen > section:nth-of-type(2n){
+#kitchen>section:nth-of-type(2n) {
     display: flex;
     flex-direction: row-reverse;
     gap: 5%;
 }
 
-#kitchen > section{
+#kitchen>section {
     display: flex;
     flex-direction: row;
     gap: 5%;
 }
 
-#kitchen > section > img{
+#kitchen>section>img {
     width: 500px;
-    -webkit-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.75);
     object-fit: cover;
 }
 
-#kitchen > section > div{
+#kitchen>section>div {
     display: flex;
     flex-direction: column;
     gap: 5%;
@@ -124,20 +120,23 @@ article>* {
     align-items: center;
 }
 
-#kitchen > section > div > h3{
+#kitchen>section>div>h3 {
     font-size: 3rem;
     font-style: italic;
 }
 
-#kitchen > section > div > p{
-    font-size: 2rem;
-    line-height: 4rem;
+#kitchen>section>div>p {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    width: 50%;
 }
 
+/*Kundenmeinung - Start*/
 #customers {
     background-color: var(--grey);
     padding: calc(2 * var(--page-padding));
     min-height: auto;
+    margin-top: 0;
 }
 
 .review-name {
@@ -145,7 +144,7 @@ article>* {
     font-size: 1.3rem;
 }
 
-.review-text{
+.review-text {
     margin: 0;
     font-size: 1.2rem;
 }
@@ -156,16 +155,19 @@ article>* {
     margin: 20px;
     padding: 20px;
     display: grid !important;
-    grid-template-rows: 175px auto;
     text-align: center;
     line-height: 2.3rem;
     font-size: 1.6rem;
     font-style: italic;
     gap: 10px;
     align-items: center;
-    min-height: 280px !important;
+    grid-template-rows: 75% auto;
+    min-height: 200px !important;
 }
 
+/*Kundenmeinung - Ende*/
+
+/*Material Überischt - Start*/
 .materialOverview {
     display: grid;
     grid-template-columns: 33% auto;
@@ -173,58 +175,186 @@ article>* {
     grid-template-rows: 60dvh;
     justify-content: center;
     gap: 40px;
-  }
-  
-  .material-nav-container {
+    align-items: center;
+}
+
+.material-nav-container {
     display: flex;
     justify-content: start;
     flex-direction: column;
     width: 100%;
-  }
-  
-  .material-nav-container > label {
+}
+
+.material-nav-container>label {
     border-top: 1px solid #ccc;
     padding: 10px;
     font-size: 2rem;
-  }
-  
-  .material-nav-container > input {
-    display: none;
-  }
+}
 
-  .material-nav-container > input:checked + label {
+.material-nav-container>input {
+    display: none;
+}
+
+.material-nav-container>input:checked+label {
     background-color: #f7f7f7;
-  }
-  
-  .material-nav-container > label:hover {
+}
+
+.material-nav-container>label:hover {
     background-color: #f7f7f7;
-  }
-  
-  .material-nav-container > label:last-of-type {
+}
+
+.material-nav-container>label:last-of-type {
     border-bottom: 1px solid #ccc;
-  }
+}
 
-  .material-display-container > div{
+.material-display-container>div {
     display: none;
-  }
+}
 
-  .material-display-container > div.show-data{
+.material-display-container>div.show-data {
     display: flex;
     flex-direction: column;
-  }
-  
-  .material-display-container > div > h3 {
+}
+
+.material-display-container>div>h3 {
     font-size: 3rem;
     margin-top: 0;
-  }
-  
-  .material-display-container > div > p {
-    font-size: 1.5rem;
-    line-height: 3rem;
-  }
-  
-  /*Spülen Vergleich - Start*/
-.kitchen-sinks-container{
+}
+
+.material-display-container>div>p {
+    font-size: 1.2rem;
+    line-height: 2rem;
+}
+
+/*Material Überischt - Ende*/
+
+
+/*Material Vergleich - Start*/
+#materialComparison {
+    margin-top: 0;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.85)), url(../imgs/bg_3.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#materials {
+    min-height: unset;
+}
+
+#materialComparisonContainer {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    grid-template-columns: auto auto auto;
+}
+
+.materialCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 40px;
+    gap: 40px;
+    background-color: white;
+}
+
+.statsCircle {
+    width: 10px;
+    height: 10px;
+    border: 2px var(--red) solid;
+    border-radius: 50%;
+}
+
+.statsCircle.filled {
+    background-color: var(--red);
+}
+
+.materialStats>div {
+    display: flex;
+    gap: 3px;
+    flex-direction: row;
+}
+
+.materialStats>p {
+    font-size: 16px;
+    margin: 0;
+}
+
+.materialStats {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    gap: 20px;
+}
+
+.materialCard:hover {
+    background-color: #f7f7f7;
+}
+
+.materialCard>h4 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.materialCard>img {
+    width: 150px;
+    height: 150px;
+    mix-blend-mode: multiply;
+}
+
+/*Material Vergleich - Ende*/
+
+
+/*Partner Slider - Start*/
+.partner-link {
+    height: 30px;
+    color: black;
+}
+
+.partner-link>i {
+    font-size: 2rem;
+    width: 200px;
+    display: inline-block;
+}
+
+#partners {
+    background-color: #fff;
+    min-height: unset;
+    height: auto;
+}
+
+.partner-link {
+    color: #fff;
+    font-size: 20rem;
+    transition: 0.2s;
+}
+
+.partner-link>img {
+    filter: grayscale(1);
+    transition: 0.2s;
+    mix-blend-mode: multiply;
+}
+
+.partner-link:hover>img {
+    filter: grayscale(0);
+}
+
+.partner-caroussel>.slick-prev::before,
+.slick-next::before {
+    color: #ccc !important;
+}
+
+.partner-link:hover {
+    background-color: #fdfdfd;
+}
+
+/*Partner Slider - Ende*/
+
+
+/*Spülen Vergleich - Start*/
+.kitchen-sinks-container {
     display: grid;
     grid-template-columns: 30% 30% 30%;
     gap: 40px;
@@ -232,7 +362,7 @@ article>* {
     justify-self: center;
 }
 
-.zoom-container{
+.zoom-container {
     display: grid;
     grid-template-rows: 50% calc(5% + 2 * 20px) 45%;
     gap: 0;
@@ -240,22 +370,22 @@ article>* {
     background-color: white;
 }
 
-.zoom-container > img{
+.zoom-container>img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: 5s;
 }
 
-.zoom-container:hover > img{
+.zoom-container:hover>img {
     transform: scale(1.25);
 }
 
-.zoom-container:hover{
+.zoom-container:hover {
     background-color: #ccc;
 }
 
-.zoom-container > h3{
+.zoom-container>h3 {
     z-index: 2;
     font-size: 2rem;
     margin: 0;
@@ -264,7 +394,7 @@ article>* {
     padding: 20px 0;
 }
 
-.zoom-container > p{
+.zoom-container>p {
     z-index: 2;
     background-color: white;
     font-size: 1.2rem;
@@ -272,4 +402,13 @@ article>* {
     text-align: justify;
     margin: 0;
 }
+
 /*Spülen Vergleich - Ende*/
+
+/*Platz - Start*/
+#place {
+    margin-top: 0;
+    min-height: unset;
+}
+
+/*Platz - Ende*/

@@ -1,11 +1,11 @@
 nav {
-    padding: calc(var(--page-padding) / 2) var(--page-padding);
     display: flex;
     flex-direction: row;
     gap: var(--page-padding);
     position: fixed;
     top: 0;
-    width: calc(100% - 2 * var(--page-padding));
+    padding: calc(var(--page-padding) / 2) calc( 4 * var(--page-padding));
+    width: calc(100% - 8 * var(--page-padding));
     z-index: 9999;
     height: 30px;
     background-color: var(--transparent);
