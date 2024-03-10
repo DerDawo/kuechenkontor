@@ -4,7 +4,7 @@ nav {
     gap: var(--page-padding);
     position: fixed;
     top: 0;
-    padding: calc(var(--page-padding) / 2) calc( 4 * var(--page-padding));
+    padding: calc(var(--page-padding) / 2) calc(4 * var(--page-padding));
     width: calc(100% - 8 * var(--page-padding));
     z-index: 9999;
     height: 30px;
@@ -48,12 +48,22 @@ nav>a:hover {
     margin: -2% 0 0 -2%;
 }
 
-.partner-link{
+.partner-link {
     margin: 0 20px;
     padding: 10px;
     background-color: white;
-    border: 1px solid #ccc;}
+    border: 1px solid #ccc;
+}
 
-.partner-link > img{
+.partner-link>img {
     height: 50px;
+}
+
+#openMobileMenu {
+    display: none;
+}
+
+#openMobileMenu {
+    position: absolute;
+    right: calc(var(--page-padding) / 2);
 }
