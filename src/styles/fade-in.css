@@ -8,3 +8,15 @@
     opacity: 1;
     transform: translate(0, 0);
 }
+
+.fade-in-load {
+    opacity: 0;
+    transform: translate(0, 10vh);
+    transition: all 1s;
+}
+
+.fade-in-load.visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+

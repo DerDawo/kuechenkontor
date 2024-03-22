@@ -49,6 +49,7 @@ h2 {
     white-space: nowrap;
     z-index: 1 !important;
     margin: 15rem 0 0 0;
+    letter-spacing: 2px;
 }
 
 h2:nth-of-type(2n) {
@@ -317,6 +318,7 @@ h2::before {
 .partner-link {
     height: 30px;
     color: black;
+    cursor: pointer;
 }
 
 .partner-link>i {

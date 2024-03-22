@@ -23,6 +23,7 @@ footer>section>h6 {
 footer>section>a {
   color: var(--grey);
   transition: 0.2s;
+  cursor: pointer;
 }
 
 footer>section>a:hover {
