@@ -94,10 +94,6 @@
         padding: 60px !important;
     }
 
-    nav>a {
-        display: none;
-    }
-
     #homeAnchor {
         display: unset;
         margin-right: unset;
@@ -108,7 +104,7 @@
         display: unset;
     }
 
-    nav {
+    simple-nav {
         padding: calc(var(--page-padding) / 2);
         width: calc(100% - var(--page-padding));
         justify-content: center;

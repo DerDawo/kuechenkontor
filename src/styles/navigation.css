@@ -43,11 +43,6 @@ nav>a:hover {
     margin-right: auto;
 }
 
-#homeAnchor>img {
-    height: 2rem;
-    margin: -2% 0 0 -2%;
-}
-
 .partner-link {
     margin: 0 20px;
     padding: 10px;
@@ -66,4 +61,24 @@ nav>a:hover {
 #openMobileMenu {
     position: absolute;
     right: calc(var(--page-padding) / 2);
+}
+
+simple-nav {
+    display: flex;
+    flex-direction: row;
+    gap: var(--page-padding);
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: calc(var(--page-padding) / 2) calc(4 * var(--page-padding));
+    width: calc(100% - 8 * var(--page-padding));
+    z-index: 9999;
+    height: 30px;
+    background-color: var(--transparent);
+    transition: 0.2s;
+}
+
+simple-nav.hover {
+    background-color: var(--white) !important;
+    box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5) !important;
 }

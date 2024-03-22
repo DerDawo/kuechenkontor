@@ -1,3 +1,4 @@
+/*
 const nav = document.querySelector("nav")
 
 let scrollTop = 0
@@ -5,9 +6,9 @@ let scrollTop = 0
 function changeNav() {
     fadeInOnScroll()
     scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
-
+    
     console.log(scrollTop)
-
+    
     if (scrollTop > 100) {
         hoverNav()
     } else {
@@ -28,6 +29,7 @@ function unhoverNav(){
     if(scrollTop > 100) return
     nav.classList.remove("hover")
 }
+*/
 
 const materialNavOptions = document.getElementsByClassName("material-nav-container")[0].querySelectorAll("input");
 for(const mnO of materialNavOptions){
