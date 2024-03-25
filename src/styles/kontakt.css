@@ -1,0 +1,19 @@
+:root {
+    --progress-color: var(--red);
+}
+
+article {
+    margin-top: unset;
+    min-height: unset;
+}
+
+h2 {
+    margin: unset;
+}
+
+.contact-data {
+    text-align: center;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    margin-bottom: 5rem;
+}

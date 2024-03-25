@@ -593,6 +593,8 @@ class SimpleNavigation extends HTMLElement {
   connectedCallback() {
     const shadow = this.attachShadow({ mode: "open" });
 
+    const permanentHover = this.getAttribute("permanentHover") === "" ? false : this.getAttribute("permanentHover") == "true" ? true : false
+    console.log(permanentHover)
     const ID = Date.now();
 
     const mobileButton = `<a data-type="mobile-button" id="open-menu-${ID}"><i class="fa-solid fa-bars"></i></a>`;
@@ -747,7 +749,9 @@ class SimpleNavigation extends HTMLElement {
     function changeNav() {
       scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
 
-      if (scrollTop > 100) {
+      let marginHeight = permanentHover == true ? 0 : 100
+
+      if (scrollTop >= marginHeight) {
         hoverNav()
       } else {
         unhoverNav()
@@ -755,8 +759,12 @@ class SimpleNavigation extends HTMLElement {
     }
 
     window.addEventListener("scroll", changeNav, false);
-    nav.addEventListener("mouseover", hoverNav)
-    nav.addEventListener("mouseleave", unhoverNav)
+    if (permanentHover == true){
+      hoverNav()
+    } else {
+      nav.addEventListener("mouseover", hoverNav)
+      nav.addEventListener("mouseleave", unhoverNav)
+    }
 
     function hoverNav() {
       nav.classList.add("hover")
@@ -777,6 +785,8 @@ class SimpleNavigation extends HTMLElement {
         c.classList.remove("hoveredNav")
       }
     }
+
+
 
   }
 
