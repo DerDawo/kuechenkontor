@@ -1,0 +1,11 @@
+:root{
+    --progress-color: var(--red);
+}
+
+article{
+    margin-top: unset;
+}
+
+h2{
+    margin: unset;
+}

@@ -747,8 +747,6 @@ class SimpleNavigation extends HTMLElement {
     function changeNav() {
       scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
 
-      console.log(scrollTop)
-
       if (scrollTop > 100) {
         hoverNav()
       } else {
@@ -785,3 +783,150 @@ class SimpleNavigation extends HTMLElement {
 
 }
 customElements.define("simple-nav", SimpleNavigation);
+
+class SimpleSequence extends HTMLElement{
+  constructor(){
+    super();
+  }
+  
+  connectedCallback(){
+    const shadow = this.attachShadow({ mode: "open" });
+    
+    const links = this.getElementsByTagName("link")[0];
+
+    const progress = this.getElementsByTagName("progress")[0];
+    progress.setAttribute("min",0);
+    progress.setAttribute("max",100);
+    
+    const sequenceItemsHTMLCollection = this.getElementsByClassName("sequence-item");
+    let sequenceItemsHTMLString = "";
+    
+    let i = 0;
+    while (i < sequenceItemsHTMLCollection.length) {
+      sequenceItemsHTMLString += sequenceItemsHTMLCollection[i].outerHTML
+      i++;
+    }
+    
+    const sequenceItemContainer = document.createElement("div");
+    sequenceItemContainer.setAttribute("class","sequence-item-container")
+    sequenceItemContainer.innerHTML = sequenceItemsHTMLString
+        
+    const style = document.createElement("style");
+    style.textContent = `
+    @import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,700;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+    progress, progress[value] {
+      /* Reset the default appearance */
+      -webkit-appearance: none;
+       appearance: none;
+
+      width: 250px;
+      height: 20px;
+    }
+
+      progress, progress[value]{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: calc(100vw - (100vw - 100%));
+        height: 10px;
+        border: none;
+        background-color: transparent;
+        z-index: 100000;
+      }
+      
+      progress[value]::-webkit-progress-bar {
+        background-color: var(--progress-color);
+      }
+      
+      progress[value]::-moz-progress-bar { 
+        background-color: var(--progress-color);
+      }
+            
+      .sequence-item-container{
+        font-family: "Roboto Condensed", sans-serif;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow-x: hidden;
+        gap: 40px;
+      }
+      
+      .sequence-item-header{
+        font-size: 2rem;
+        justify-self: center;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .sequence-item{
+        border-radius: 10px;
+        padding: 20px;
+        background-color: white;
+        margin: 5px 10px;
+        background-color: #f7f7f7;
+        display: grid;
+        gap: 20px;
+        justify-content: center;
+      }
+      
+      .sequence-item-picture, .sequence-item-text{
+        grid-column: 1 / 3;
+      }
+
+      .sequence-item-picture{
+        display: flex;
+        justify-content: center;
+      }
+
+      .sequence-item-text{
+        max-width: 800px;
+        justify-self: center;
+        line-height: 3rem;
+  font-size: 1.4rem;
+      }
+      
+      .sequence-item-picture > img{
+        aspect-ratio: 8 / 5;
+        width: 100%;
+        object-fit: cover;
+        max-width: 500px; 
+      }
+
+      @media only screen and (max-width: 480px){
+        .sequence-item-picture > img{
+          max-width: 100%; 
+        }
+      }
+
+    `
+    
+    
+    this.innerHTML = ""
+    this.appendChild(shadow);
+    shadow.appendChild(links)
+    shadow.appendChild(style);
+    shadow.appendChild(progress);
+    shadow.innerHTML += `
+      ${sequenceItemContainer.outerHTML}
+    `
+    
+    window.addEventListener("scroll",setProgressBarSize);
+    function setProgressBarSize(){
+      var h = document.documentElement, 
+          b = document.body,
+          st = 'scrollTop',
+          sh = 'scrollHeight';
+
+      var percent = (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100;
+      
+      shadow.querySelector("progress").setAttribute("value",percent)
+    }
+
+  } 
+  
+}
+customElements.define("simple-sequence", SimpleSequence);
