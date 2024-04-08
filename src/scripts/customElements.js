@@ -594,7 +594,7 @@ class SimpleNavigation extends HTMLElement {
     const shadow = this.attachShadow({ mode: "open" });
 
     const permanentHover = this.getAttribute("permanentHover") === "" ? false : this.getAttribute("permanentHover") == "true" ? true : false
-    console.log(permanentHover)
+
     const ID = Date.now();
 
     const mobileButton = `<a data-type="mobile-button" id="open-menu-${ID}"><i class="fa-solid fa-bars"></i></a>`;
@@ -940,3 +940,105 @@ class SimpleSequence extends HTMLElement{
   
 }
 customElements.define("simple-sequence", SimpleSequence);
+
+class KitchenReference extends HTMLElement{
+  constructor(){
+    super();
+  }
+  
+  connectedCallback(){
+    const shadow = this.attachShadow({ mode: "open" });
+    const id = Date.now()
+    const sliderContent = this.getElementsByTagName("img");
+    const information = this.getElementsByTagName("p")[0];
+    
+    this.setAttribute("init-time",`${id}`)
+    
+    console.log(sliderContent)
+    
+    const sliderHTML = document.createElement("div")
+    sliderHTML.setAttribute("class","kitchen-slider")
+    sliderHTML.setAttribute("id",`kitchen-slider-${id}`)
+    const navSliderHTML = document.createElement("div")
+    navSliderHTML.setAttribute("class","kitchen-slider-nav")
+    navSliderHTML.setAttribute("id",`kitchen-slider-nav-${id}`)
+    
+    Array.from(sliderContent).forEach((element) => {
+      sliderHTML.appendChild(element.cloneNode())  
+      navSliderHTML.appendChild(element.cloneNode())  
+    })
+   
+    const wrapper = document.createElement("div");
+    wrapper.setAttribute("class","kitchen-reference-wrapper");
+    
+    const style = document.createElement("style");
+    style.textContent = `
+      .kitchen-reference-wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        gap: 20px;
+        width: 100%;
+      }
+      
+      .kitchen-reference-information{
+        text-align: center;
+      }
+    `
+    
+    this.innerHTML = "";    
+    this.appendChild(shadow);
+    shadow.innerHTML += `
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js"
+      integrity="sha512-poSrvjfoBHxVw5Q2awEsya5daC0p00C8SKN74aVJrs7XLeZAi+3+13ahRhHm8zdAFbI2+/SUIrKYLvGBJf9H3A=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css"
+      integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="../../src/lib/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="../../src/lib/slick/slick-theme.css" />
+    <script src="../../src/lib/slick/slick.min.js"></script>
+
+    `
+    shadow.appendChild(style);
+    shadow.appendChild(wrapper);
+    wrapper.appendChild(sliderHTML);
+    wrapper.appendChild(information);
+    wrapper.appendChild(navSliderHTML);
+    
+    const shadowRoot = $(`kitchen-reference[init-time="${id}"]`)[0].shadowRoot
+    
+    const sliderCollected = $(shadowRoot).find(`#kitchen-slider-${id}`) 
+    const sliderNavCollected = $(shadowRoot).find(`#kitchen-slider-nav-${id}`)
+
+    console.log($(sliderCollected).slick())
+
+    $(sliderCollected).slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      fade: true,
+      asNavFor: $(sliderNavCollected).selector,
+    });
+    $(sliderNavCollected).slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      asNavFor: $(sliderCollected).selector,
+      dots: false,
+      centerMode: true,
+      focusOnSelect: true
+    });
+    
+  }
+
+}
+customElements.define("kitchen-reference", KitchenReference);
+
+
+
+				
