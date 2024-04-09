@@ -1049,6 +1049,15 @@ class SimpleSlideshow extends HTMLElement{
     const images = this.getElementsByTagName("img");
     const slideShowWrapper = document.createElement("div");
     slideShowWrapper.setAttribute("class","slideshow-wrapper")
+    
+    const header = document.createElement("span");
+    header.setAttribute("class","header");
+    header.innerHTML = this.getAttribute("header");
+
+    const description = document.createElement("span");
+    description.setAttribute("class","description");
+    description.innerHTML = this.getAttribute("description");
+
     const slides = document.createElement("div");
     slides.setAttribute("class","slideshow-container");
     for(const img of images){
@@ -1064,6 +1073,7 @@ class SimpleSlideshow extends HTMLElement{
     prev.setAttribute("class","prev");
     prev.setAttribute("operation","-1");
     prev.innerHTML = '&#10094';
+    
     const next = document.createElement("a");
     next.setAttribute("class","next");
     next.setAttribute("operation","1");
@@ -1115,6 +1125,9 @@ class SimpleSlideshow extends HTMLElement{
     
     const style = document.createElement("style");
     style.textContent = `
+      @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Satisfy&display=swap');
+
       * {box-sizing:border-box}
 
       .slideshow-wrapper{
@@ -1192,6 +1205,21 @@ class SimpleSlideshow extends HTMLElement{
         bottom: 8px;
         width: 100%;
         text-align: center;
+        font-family: "Roboto Condensed", sans-serif;
+      }
+
+      .header{
+        font-family: "Roboto Condensed", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 3rem;
+        margin-bottom: 10px;
+      }
+      
+      .description{
+        font-family: "Roboto Condensed", sans-serif;
+        font-size: 1.5rem;
+        margin-top: 10px;
       }
 
       .dots-container{
@@ -1231,10 +1259,12 @@ class SimpleSlideshow extends HTMLElement{
     this.appendChild(shadow);
     shadow.appendChild(style);
     shadow.appendChild(slideShowWrapper);
+    slideShowWrapper.appendChild(header)
     slideShowWrapper.appendChild(slides)
     slides.appendChild(prev)
     slides.appendChild(next)
     slideShowWrapper.appendChild(dots)
+    slideShowWrapper.appendChild(description)
 
     prev.addEventListener("click",plusSlide);
     next.addEventListener("click",plusSlide);
