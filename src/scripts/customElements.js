@@ -1039,6 +1039,211 @@ class KitchenReference extends HTMLElement{
 }
 customElements.define("kitchen-reference", KitchenReference);
 
+class SimpleSlideshow extends HTMLElement{
+  constructor(){
+    super();
+  }
+  
+  connectedCallback(){
+    const shadow = this.attachShadow({ mode: "open" });
+    const images = this.getElementsByTagName("img");
+    const slideShowWrapper = document.createElement("div");
+    slideShowWrapper.setAttribute("class","slideshow-wrapper")
+    const slides = document.createElement("div");
+    slides.setAttribute("class","slideshow-container");
+    for(const img of images){
+      const slide = document.createElement("div");
+      slide.setAttribute("class","mySlides fade")
+      slide.innerHTML = ""
+      slide.innerHTML += img.outerHTML
+      slide.innerHTML += `<div class="text">${img.getAttribute("caption")}</div>`
+      slides.appendChild(slide)
+    }
+  
+    const prev = document.createElement("a");
+    prev.setAttribute("class","prev");
+    prev.setAttribute("operation","-1");
+    prev.innerHTML = '&#10094';
+    const next = document.createElement("a");
+    next.setAttribute("class","next");
+    next.setAttribute("operation","1");
+    next.innerHTML = '&#10095';
+    
+    const dots = document.createElement("div")
+    dots.setAttribute("class","dots-container")
+    for(let i = 0; i < images.length; i++){
+      const dot = document.createElement("span");
+      dot.setAttribute("class","dot")
+      dot.setAttribute("index",i+1)
+      dot.addEventListener("click",currentSlide);
+      dots.appendChild(dot)
+    }
+    
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlide(){
+      const operation = Number(this.getAttribute("operation"))
+      showSlides(slideIndex += operation);
+     }
+    
+    function currentSlide(){
+      const index = Number(this.getAttribute("index"))
+      showSlides(slideIndex = index);
+    }
+    
+    function showSlides(n) {
+      let i;
+      let _slides = slides.childNodes;
+      let _dots = dots.childNodes;
+      let _slides_ = [];
+      for(var j = 0; j < _slides.length; j++){
+          if(_slides[j].tagName === "DIV") _slides_.push(_slides[j])
+      }
+     
+      if (n > _slides_.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = _slides_.length}
+      for (i = 0; i < _slides_.length; i++) {
+        _slides_[i].style.display = "none";
+      }
+      for (i = 0; i < _dots.length; i++) {
+        _dots[i].className = _dots[i].className.replace(" active", "");
+      }
+      _slides_[slideIndex-1].style.display = "block";
+      _dots[slideIndex-1].className += " active";
+    } 
+    
+    const style = document.createElement("style");
+    style.textContent = `
+      * {box-sizing:border-box}
+
+      .slideshow-wrapper{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      /* Slideshow container */
+      .slideshow-container {
+        position: relative;
+        width: 100%;
+      }
+
+      /* Hide the images by default */
+      .mySlides {
+        display: none; 
+      }
+
+      .mySlides > img{
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 500px;
+      }
+
+      @media only screen and (max-width: 768px) {
+        .mySlides > img {
+            height: 50dvh;
+            object-fit: contain;
+            width: 100%
+        }
+
+        .text{
+          background-color: rgba(0,0,0,0.25);
+        }
+      }
+
+      /* Next & previous buttons */
+      .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        background-color: rgba(0,0,0,0.25);
+      }
+
+      /* Position the "next button" to the right */
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+
+      /* On hover, add a black background color with a little bit see-through */
+      .prev:hover, .next:hover {
+        background-color: #717171;
+      }
+
+      /* Caption text */
+      .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .dots-container{
+        margin-top: 20px;
+      }
+
+      /* The dots/bullets/indicators */
+      .dot {
+        cursor: pointer;
+        height: 10px;
+        width: 10px;
+        margin: 0 4px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+  
+      }
+
+      .active, .dot:hover {
+        background-color: #717171;
+      }
+
+      /* Fading animation */
+      .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+
+      @keyframes fade {
+        from {opacity: .4}
+        to {opacity: 1}
+      }
+      
+    `
+    this.innerHTML = "";    
+    this.appendChild(shadow);
+    shadow.appendChild(style);
+    shadow.appendChild(slideShowWrapper);
+    slideShowWrapper.appendChild(slides)
+    slides.appendChild(prev)
+    slides.appendChild(next)
+    slideShowWrapper.appendChild(dots)
+
+    prev.addEventListener("click",plusSlide);
+    next.addEventListener("click",plusSlide);
+    
+    
+  }
+}
+
+customElements.define("simple-slideshow", SimpleSlideshow);
 
 
 				

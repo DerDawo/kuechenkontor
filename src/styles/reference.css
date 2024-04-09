@@ -1,0 +1,11 @@
+article {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+
+@media only screen and (max-width: 768px) {
+    article {
+        margin-top: unset;
+    }
+}
